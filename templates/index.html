@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туризм</title>
+    <link rel="stylesheet" href='/static/index.css' />
+</head>
+<body>
+<div id="list1">
+<header class="header_class"><img src="/static/logo.jpg" class="img_logo">
+    <button class="button_elem"><b>Старт</b></button>
+<button class="button_elem"><b>О проекте</b></button>
+<button class="button_elem"><b>Город</b></button>
+<button class="button_elem"><b>Ивенты</b></button>
+<button class="button_elem"><b>Спец. ивенты</b></button>
+<button class="button_elem"><b>Бот</b></button>
+<button class="button_elem"><b>Информация</b></button>
+<img class="button_elem" src="/static/user_icon.jpg">
+</header>
+    <b style="font-size: 100px;">Давай вместе откроем Анапу</b>
+    <!-- Содержимое первого "листа" -->
+</div>
+
+<div id="list2">
+    <!-- Содержимое второго "листа" -->
+</div>
+
+<div id="list3">
+    <!-- Содержимое третьего "листа" -->
+</div>
+<form action="/register" method="POST"><button type="submit">Зарегистрироваться</button></form>
+    <form action="/login" method="POST">
+            <div>
+                <label for="username">Имя пользователя:</label><br>
+                <input type="username" id="username" name="username"><br>
+            </div>
+            <div>
+                <label for="password">Пароль:</label><br>
+                <input type="password" id="password" name="password"><br>
+            </div>
+            <br>
+            <input type="submit" value="Войти">
+        </form>
+    <header>
+        <h1>Добро пожаловать на сайт туризма</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/booking">бронирование отелей</a></li>
+            <li><a href="/tours">туры</a></li>
+            <li><a href="/places">достопримечательности</a></li>
+            <li><a href="/on-foot_routes">пешие маршруты</a></li>
+            <li><a href="/beaches">пляжи</a></li>
+            <li><a href="/loyality">лояльность</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-content">
+        <h2>Путешествуйте с нами!</h2>
+        <p>Мы предлагаем различные туристические пакеты для всех видов путешествий. С нами вы сможете открыть для себя мир!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2021 Туризм. Все права защищены.</p>
+    </footer>
+</body>
+</html>

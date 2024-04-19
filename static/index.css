@@ -1,0 +1,20 @@
+.authorization{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_class{
+    background-color: black;
+    display:flex;
+    justify-content: space-around;
+}
+
+.img_logo{
+margin-left:5%;
+}
+
+.button_elem{
+padding-left: 25px;
+padding-right: 25px;
+background-color: black;
+color: white;}
