@@ -59,7 +59,7 @@ def tour___():
     return render_template('index.html')
 
 
-@app.route("/register")
+@app.route("/register", methods=["POST", "GET"])
 def register():
     return render_template('register.html')
 
@@ -76,7 +76,7 @@ def register_get_data():
         cur.execute(f"""INSERT INTO Users(username, password) VALUES ("{a['username']}", "{a['password']}")""")
         con.commit()
 
-    return a
+    return flask.redirect("/tour")
 
 
 @app.route("/login", methods=["POST", "GET"])
