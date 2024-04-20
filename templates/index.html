@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Anapa+</title>
+        <title>Анапа+</title>
         <link rel="stylesheet" href='/static/style.css'/>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
     </head>
@@ -11,60 +11,47 @@
                 <img src="/static/logo.jpg" >
             </div>
             <div class="menu">
-                <button class="menu_button">Старт</button>
-                <button class="menu_button">О проекте</button>
-                <button class="menu_button">Город</button>
-                <button class="menu_button">Ивенты</button>
-                <button class="menu_button">Спец. ивенты</button>
-                <button class="menu_button">Бот</button>
-                <button class="menu_button">Информация</button>
+                <a href="/booking" class="menu_button">Бронирование отелей</a>
+                <a href="/tours" class="menu_button">Туры</a>
+                <a href="/places" class="menu_button">Достопримечательности</a>
+                <a href="/on-foot_routes" class="menu_button">Пешие маршруты</a>
+                <a href="/beaches" class="menu_button">Пляжи</a>
+                <a href="/loyality" class="menu_button">Программа лояльности</a>
             </div>
             <div class="user_button">
-                <button><img src="/static/user_icon.jpg"></button>
+                <button><img src="/static/user_icon.jpg"></button> 
             </div>
         </header>
-
+        
         <p class="slogan">Давай вместе<br/>откроем Анапу</p>
-    <div class="second_slide"><div>
-        <p style="text-align: left; font-weight: bold; font-size: 35px;">Анапа Open</p>
-     <p style="text-align: left; font-weight: 200; font-size: 15px;">какой текст крутой бла бла бла</p>
-        </div><div class="image-container">
-    <div class="photo-container">
-        <img src="/static/logo.jpg" alt="Your Image">
-    </div>
-</div></div>
-
+        
         <div>
-            <form action="/register" method="GET"><button type="submit">Зарегистрироваться</button></form>
-            <<form action="/login" method="POST">
-            <div>
-                <label for="username">Имя пользователя:</label><br>
-                <input type="text" id="username" name="username"><br>
-            </div>
-            <div>
-                <label for="password">Пароль:</label><br>
-                <input type="password" id="password" name="password"><br>
-            </div>
-            <br>
-            <input type="submit" value="Войти">
-        </form>
+            <form action="/register" method="GET"><input type="submit" value="Зарегистрироваться"></form>
+            <form action="/login" method="POST">
         </div>
+        <div>
+            <label for="username">Имя пользователя:</label><br>
+            <input type="text" id="username" name="username" class="user_data"><br>
+        </div>
+        <div>
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" class="user_data"><br>
+        </div>
+        <br>
+        <input type="submit" value="Войти">
         {% if current_user.is_authenticated %}
-            <h1>You are logged in</h1>
-            <a href="/logout">Logout</a>
+            <p class="login_state">Вы авторизованы</p>
+            <a href="/logout" class="sign_out">Выйти</a><br/>
         {% else %}
-            <h1>You are not logged in</h1>
+            <p class="login_state">Вы не авторизованы</p><br/>
         {% endif %}
-        <ul>
-            <li><a href="/booking">бронирование отелей</a></li>
-            <li><a href="/tours">туры</a></li>
-            <li><a href="/places">достопримечательности</a></li>
-            <li><a href="/on-foot_routes">пешие маршруты</a></li>
-            <li><a href="/beaches">пляжи</a></li>
-            <li><a href="/loyality">лояльность</a></li>
-        </ul>
-        <h2>Путешествуйте с нами!</h2>
-        <p>Мы предлагаем различные туристические пакеты для всех видов путешествий. С нами вы сможете открыть для себя мир!</p>
-        <p>&copy; 2021 Туризм. Все права защищены.</p>
+        <br/>
+        <br/>
+        <br/>
+        <footer>
+            <p >Так выгоднее.</p>
+            <p>&copy; 2024 Анапа+. Все права защищены.</p>
+        </footer>
+        
     </body>
 </html>
