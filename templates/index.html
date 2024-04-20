@@ -16,7 +16,7 @@
 <button class="button_elem"><b>Спец. ивенты</b></button>
 <button class="button_elem"><b>Бот</b></button>
 <button class="button_elem"><b>Информация</b></button>
-<img class="button_elem" src="/static/user_icon.jpg"></div>
+<button><img class="button_elem" src="/static/user_icon.jpg"></button></div>
     <div class="content">
         <b class="list1_">Давай вместе откроем Анапу</b>
     </div>
@@ -31,11 +31,11 @@
 <div id="list3">
     <!-- Содержимое третьего "листа" -->
 </div>
-<form action="/register" method="POST"><button type="submit">Зарегистрироваться</button></form>
+<form action="/register" method="GET"><button type="submit">Зарегистрироваться</button></form>
     <form action="/login" method="POST">
             <div>
                 <label for="username">Имя пользователя:</label><br>
-                <input type="username" id="username" name="username"><br>
+                <input type="text" id="username" name="username"><br>
             </div>
             <div>
                 <label for="password">Пароль:</label><br>
@@ -44,6 +44,14 @@
             <br>
             <input type="submit" value="Войти">
         </form>
+
+{% if current_user.is_authenticated %}
+	<h1>You are logged in</h1>
+	<a href="/logout">Logout</a>
+	{% else %}
+	<h1>You are not logged in</h1>
+	{% endif %}
+
     <header>
         <h1>Добро пожаловать на сайт туризма</h1>
     </header>

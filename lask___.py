@@ -5,16 +5,42 @@ import flask
 os.system("pip install flask")
 os.system("pip install Flask-RESTful")
 os.system("pip install psycopg2-binary")
-
+os.system("pip install flask flask-sqlalchemy flask-login")
+from flask_login import LoginManager, UserMixin, login_user, logout_user
 from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api
 from flask import render_template, make_response
 import sys
 import sqlite3
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+app.config["SECRET_KEY"] = "abc"
+db = SQLAlchemy()
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+
+class Users(UserMixin, db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	username = db.Column(db.String(250), unique=True, nullable=False)
+	password = db.Column(db.String(250), nullable=False)
+
+
+db.init_app(app)
+
+
+with app.app_context():
+	db.create_all()
+
+
+@login_manager.user_loader
+def loader_user(user_id):
+	return Users.query.get(user_id)
 api = Api(app)
-port = 5100
+port = 5000
 
 if sys.argv.__len__() > 1:
     port = sys.argv[1]
@@ -61,41 +87,35 @@ def tour___():
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
-    return render_template('register.html')
+    if request.method == "POST":
+        user = Users(username=request.form.get("username"),
+                     password=request.form.get("password"))
+        db.session.add(user)
+        db.session.commit()
+        return flask.redirect(flask.url_for("login"))
+    return render_template("sign_up.html")
 
 
-@app.route("/register_get", methods=["POST", "GET"])
-def register_get_data():
-    a = request.form
-    con = sqlite3.connect("data.db")
-    cur = con.cursor()
-    print(a)
-    user_exists = cur.execute(f"""SELECT * from Users WHERE username="{a['username']}" """).fetchall()
-
-    if len(a["password"]) >= 8 and a["username"] and not (user_exists):
-        cur.execute(f"""INSERT INTO Users(username, password) VALUES ("{a['username']}", "{a['password']}")""")
-        con.commit()
-
-    return flask.redirect("/")
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        user = Users.query.filter_by(
+			username=request.form.get("username")).first()
+        if user.password == request.form.get("password"):
+            login_user(user)
+        return flask.redirect(flask.url_for("home"))
+    return render_template("login.html")
 
 
-@app.route("/login", methods=["POST", "GET"])
-def get_login_form_data():
-    a = request.form
-    print(a)
-    con = sqlite3.connect("data.db")
-    cur = con.cursor()
-    user_exists = cur.execute(f"""SELECT * from Users WHERE username="{a['username']}" AND password="{a['password']}" """).fetchall()
+@app.route("/logout")
+def logout():
+	logout_user()
+	return flask.redirect(flask.url_for("home"))
 
-    if user_exists:
-        con.commit()
-        print("юзер сущесвует ура")
-        resp = make_response()
-        resp.set_cookie('user', a["username"])
-        resp.set_cookie('pass', a["password"])
-        return resp
 
-    return flask.redirect("/login")
+@app.route("/")
+def home():
+	return render_template("index.html")
 
 
 class Customer:
