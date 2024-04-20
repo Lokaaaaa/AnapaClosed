@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Туризм</title>
-    <link rel="stylesheet" href='/static/index.css' />
-</head>
-<body>
-<div id="list1">
-    <div class="header"><img src="/static/logo.jpg" class="img_logo">
-    <button class="button_elem"><b>Старт</b></button>
-<button class="button_elem"><b>О проекте</b></button>
-<button class="button_elem"><b>Город</b></button>
-<button class="button_elem"><b>Ивенты</b></button>
-<button class="button_elem"><b>Спец. ивенты</b></button>
-<button class="button_elem"><b>Бот</b></button>
-<button class="button_elem"><b>Информация</b></button>
-<button><img class="button_elem" src="/static/user_icon.jpg"></button></div>
-    <div class="content">
-        <b class="list1_">Давай вместе откроем Анапу</b>
+<html lang="ru">
+    <head>
+        <title>Anapa+</title>
+        <link rel="stylesheet" href='/static/style.css'/>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="/static/logo.jpg" >
+            </div>
+            <div class="menu">
+                <button class="menu_button">Старт</button>
+                <button class="menu_button">О проекте</button>
+                <button class="menu_button">Город</button>
+                <button class="menu_button">Ивенты</button>
+                <button class="menu_button">Спец. ивенты</button>
+                <button class="menu_button">Бот</button>
+                <button class="menu_button">Информация</button>
+            </div>
+            <div class="user_button">
+                <button><img src="/static/user_icon.jpg"></button>
+            </div>
+        </header>
+
+        <p class="slogan">Давай вместе<br/>откроем Анапу</p>
+    <div class="second_slide"><div>
+        <p style="text-align: left; font-weight: bold; font-size: 35px;">Анапа Open</p>
+     <p style="text-align: left; font-weight: 200; font-size: 15px;">какой текст крутой бла бла бла</p>
+        </div><div class="image-container">
+    <div class="photo-container">
+        <img src="/static/logo.jpg" alt="Your Image">
     </div>
-</div>
-    <!-- Содержимое первого "листа" -->
-</div>
+</div></div>
 
-<div id="list2">
-    <!-- Содержимое второго "листа" -->
-</div>
-
-<div id="list3">
-    <!-- Содержимое третьего "листа" -->
-</div>
-<form action="/register" method="GET"><button type="submit">Зарегистрироваться</button></form>
-    <form action="/login" method="POST">
+        <div>
+            <form action="/register" method="GET"><button type="submit">Зарегистрироваться</button></form>
+            <<form action="/login" method="POST">
             <div>
                 <label for="username">Имя пользователя:</label><br>
                 <input type="text" id="username" name="username"><br>
@@ -44,19 +48,13 @@
             <br>
             <input type="submit" value="Войти">
         </form>
-
-{% if current_user.is_authenticated %}
-	<h1>You are logged in</h1>
-	<a href="/logout">Logout</a>
-	{% else %}
-	<h1>You are not logged in</h1>
-	{% endif %}
-
-    <header>
-        <h1>Добро пожаловать на сайт туризма</h1>
-    </header>
-
-    <nav>
+        </div>
+        {% if current_user.is_authenticated %}
+            <h1>You are logged in</h1>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <h1>You are not logged in</h1>
+        {% endif %}
         <ul>
             <li><a href="/booking">бронирование отелей</a></li>
             <li><a href="/tours">туры</a></li>
@@ -65,15 +63,8 @@
             <li><a href="/beaches">пляжи</a></li>
             <li><a href="/loyality">лояльность</a></li>
         </ul>
-    </nav>
-
-    <section class="main-content">
         <h2>Путешествуйте с нами!</h2>
         <p>Мы предлагаем различные туристические пакеты для всех видов путешествий. С нами вы сможете открыть для себя мир!</p>
-    </section>
-
-    <footer>
         <p>&copy; 2021 Туризм. Все права защищены.</p>
-    </footer>
-</body>
+    </body>
 </html>

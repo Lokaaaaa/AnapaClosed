@@ -1,6 +1,11 @@
-.authorization{
-    display: flex;
-    justify-content: space-between;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #333;
+    font-family: 'Poppins', sans-serif;
 }
 
 .header_class{
@@ -19,29 +24,53 @@ padding-right: 25px;
 background-color: black;
 color: white;}
 
+html {
+    scroll-behavior: smooth;
+}
 
-.list1 {
+h1 {
+    font-size: 60px;
+}
+
+header {
+    position: fixed;
+    display: inline;
+    background-color: black;
+}
+
+.sections {
     height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header {
-    background: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-.content {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.content p {
-    text-align: center;
+#sec1 {
+background-color:red;
+    justify-content: center;
+}
+
+#sec2 {
+background-color:yellow;
+    justify-content: center;
+}
+
+#sec3 {
+background-color:green;
+    justify-content: center;
+}
+
+#sec4 {
+background-color:blue;
+    justify-content: center;
+}
+
+#sec5 {
+background-color:orange;
+    justify-content: center;
+}
+
+#sec6 {
+background-color:gray;
+    justify-content: center;
 }
