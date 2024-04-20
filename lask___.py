@@ -21,7 +21,7 @@ if sys.argv.__len__() > 1:
 print("Api running on port : {} ".format(port))
 
 
-@app.route("/")
+@app.route("/tour")
 def index_():
     return "<h1>tourney</h1>"
 """1. Бронирование отелей 
@@ -54,7 +54,7 @@ def tour_2():
     return "<h1>Пешие маршруты</h1>"
 
 
-@app.route("/tour")
+@app.route("/")
 def tour___():
     return render_template('index.html')
 
@@ -76,7 +76,7 @@ def register_get_data():
         cur.execute(f"""INSERT INTO Users(username, password) VALUES ("{a['username']}", "{a['password']}")""")
         con.commit()
 
-    return flask.redirect("/tour")
+    return flask.redirect("/")
 
 
 @app.route("/login", methods=["POST", "GET"])
