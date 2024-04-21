@@ -279,5 +279,13 @@ def cafe():
 def profile():
     return render_template('profile.html',username=current_user.username, squares=current_user.squares)
 
+
+@app.after_request
+def redirect_to_sign(response):
+    if response.status_code == 401:
+        return flask.redirect(flask.url_for('login'))
+        
+    return response
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=port)
