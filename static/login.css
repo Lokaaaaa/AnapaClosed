@@ -1,0 +1,131 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+body{
+	font-family: Arial, sans-serif;
+	background-color: #bdd5e7;
+}
+
+header{ 
+    background-color: #f8f8f8;
+	height: 80px;
+	width: 100%;
+}
+
+.logo{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.menu{
+	position: absolute;
+	top: 37px;
+	right: 10px;
+	background-color: #f8f8f8;
+}
+
+.menu_button{
+	font-size: 26px;
+    padding: 0px 15px 0px 15px;
+    text-align: center;
+    background-color: #f8f8f8;
+    color: black;
+}
+
+.menu_button:hover{
+	color: darkslategray;
+}
+
+.slogan{
+	color: #054264;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	height: 320px;
+	text-align: center;
+    font-weight: bold;
+    font-size: 120px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-style {
+    margin: 0 auto;
+    text-align: center;
+    width: 500px; /* Увеличиваем ширину формы */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+}
+
+.label-style {
+    text-align: left;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input-style {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.submit-style {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #054264;
+    color: white;
+    cursor: pointer;
+}
+footer{
+	position: absolute;
+    bottom: 2px;
+    left: 2px;
+	font-size: 14px;
+}
