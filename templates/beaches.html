@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Пляжи</title>
+        <link rel="stylesheet" href='/static/beaches.css'/>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="/index"><img src="/static/logo.png"></a>
+            </div>
+            <div class="menu">
+                <a href="/booking" class="menu_button">бронирование отелей</a>
+                <a href="/tours" class="menu_button">туры</a>
+                <a href="/places" class="menu_button">достопримечательности</a>
+                <a href="/enterteinments" class="menu_button">развлечения</a>
+                <a href="/beaches" class="menu_button">пляжи</a>
+                <a href="/cafe" class="menu_button">кафе</a>
+                {% if current_user.is_authenticated %}
+                <a href="/profile" class="menu_button">профиль</a>
+                {% else %}
+                
+        {% endif %}
+            </div>
+        </header>
+
+        <p class="slogan">Пляжи</p>
+
+        <div class="center">
+            <form action="/beaches" method="post" class="form-style" onsubmit="mysubmit();return false">
+                <input type="hidden" id="username" name="username"><br>
+                <label for="purchase" class="label-style">сумма к оплате:</label><br>
+                <input type="number" id="purchase" name="purchase" class="input-style"><br>
+                <input type="submit" value="ОПЛАТИТЬ" name="PAY" class="submit-style">
+                <div>
+                    <br>
+                </div>
+                <div>
+                    <input type="submit" value="ОПЛАТИТЬ КУБАМИ" name="PAY" class="submit-style">
+                </div>
+            </form>
+        </div>
+        {% if mistake != "" %}
+        <p class="error">Ошибка! Недостаточное количество "кубов" на балансе попробуйте накопить еще и потратить позже (вам не хватает {{ need }} кубов)</p>
+        {% else %}
+
+        {% endif %}
+        <br/>
+        <footer>
+            <p>&copy; 2024 Anapa+. Все права защищены.</p>
+        </footer>
+    </body>
+</html>

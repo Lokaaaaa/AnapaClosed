@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Профиль</title>
+        <link rel="stylesheet" href='/static/profile.css'/>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="/index"><img src="/static/logo.png"></a>
+            </div>
+            <div class="menu">
+                <a href="/booking" class="menu_button">бронирование отелей</a>
+                <a href="/tours" class="menu_button">туры</a>
+                <a href="/places" class="menu_button">достопримечательности</a>
+                <a href="/enterteinments" class="menu_button">развлечения</a>
+                <a href="/beaches" class="menu_button">пляжи</a>
+                <a href="/cafe" class="menu_button">кафе</a>
+                {% if current_user.is_authenticated %}
+                <a href="/profile" class="menu_button">профиль</a>
+                {% else %}
+
+        {% endif %}
+            </div>
+        </header>
+        
+        <p class="slogan">Профиль</p>
+
+        <div class="profile_box">
+            <img src="/static/karas.jpg" class="karas">
+            <p class="profile_stuff">имя пользователя: {{ username }}</p><br>
+            <p class="profile_stuff">количество "КУБИКОВ": {{ squares }}</p>
+        </div>
+        <br/>
+        <footer>
+            <p>&copy; 2024 Anapa+. Все права защищены.</p>
+        </footer>
+    </body>
+</html>
